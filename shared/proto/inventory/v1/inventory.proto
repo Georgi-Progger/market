@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package inventory.v1;
+
+option go_package = "github.com/Georgi-Progger/market/shared/pkg/proto/inventory/v1;inventory_v1";
+
+// InventoryService provides inventory management operations
+service InventoryService {
+    // ListJobs returns a list of all jobs
+    rpc ListJobs(ListJobsRequest) returns (ListJobsResponse);
+}
+
+// ListJobsRequest is an empty request for listing jobs
+message ListJobsRequest {
+}
+
+// ListJobsResponse contains the list of jobs
+message ListJobsResponse {
+    string jobs = 1;
+}

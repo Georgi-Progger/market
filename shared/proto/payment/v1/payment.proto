@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package payment.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Georgi-Progger/market/shared/pkg/proto/payment/v1;payment_v1";
+
+// PaymentService provides payment processing operations
+service PaymentService {
+    // Start initiates a payment job
+    rpc Start(StartRequest) returns (StartResponse);
+}
+
+// StartRequest contains information to start a payment job
+message StartRequest {
+    string name = 1;
+    google.protobuf.Timestamp until = 2;    
+}
+
+// StartResponse contains the result of starting a payment job
+message StartResponse {
+    string name = 1;
+    string error_message = 2;
+}
